@@ -1,105 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Super Asistente 360</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icon-192.png">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: black;
-      color: white;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Asistente 360</title>
 
-    header {
-      padding: 40px 20px 20px 20px;
-    }
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:black;
+  color:white;
+  text-align:center;
+}
 
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
+header{
+  padding:40px 20px 10px;
+}
 
-    .fecha {
-      font-size: 16px;
-      opacity: 0.8;
-    }
+h1{
+  margin:0;
+}
 
-    .tarjetas {
-      padding: 20px;
-    }
+.fecha{
+  opacity:.8;
+  margin-top:5px;
+}
 
-    .card {
-      background: #1a1a1a;
-      margin: 15px auto;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 400px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+.container{
+  padding:20px;
+}
 
-    .card:hover {
-      background: #2a2a2a;
-    }
+.card{
+  background:#1a1a1a;
+  padding:20px;
+  margin:15px auto;
+  border-radius:15px;
+  max-width:400px;
+  cursor:pointer;
+  transition:.3s;
+}
 
-    .bottom-bar {
-      position: fixed;
-      bottom: 20px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-    }
+.card:hover{
+  background:#2a2a2a;
+}
 
-    .btn {
-      background: #222;
-      border: none;
-      color: white;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 18px;
-      cursor: pointer;
-    }
+.bottom-bar{
+  position:fixed;
+  bottom:20px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:50px;
+}
 
-    .btn:hover {
-      background: #333;
-    }
-  </style>
+.btn{
+  background:#222;
+  border:none;
+  color:white;
+  padding:15px 18px;
+  border-radius:50%;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.btn:hover{
+  background:#333;
+}
+
+.section{
+  display:none;
+  padding:20px;
+}
+
+.back{
+  margin-top:20px;
+  background:#444;
+  border:none;
+  color:white;
+  padding:10px 20px;
+  border-radius:10px;
+  cursor:pointer;
+}
+</style>
 </head>
+
 <body>
 
+<!-- INICIO -->
+<div id="inicio">
+
 <header>
-  <h1>Super Asistente 360</h1>
-  <div class="fecha" id="fecha"></div>
+<h1>Super Asistente 360</h1>
+<div class="fecha" id="fecha"></div>
 </header>
 
-<div class="tarjetas">
-  <div class="card">📅 Reuniones</div>
-  <div class="card">🏢 Asambleas</div>
-  <div class="card">📊 Informes</div>
+<div class="container">
+<div class="card" onclick="abrir('reuniones')">📅 Reuniones</div>
+<div class="card" onclick="abrir('asambleas')">🏢 Asambleas</div>
+<div class="card" onclick="abrir('informes')">📊 Informes</div>
 </div>
 
 <div class="bottom-bar">
-  <button class="btn">🔍</button>
-  <button class="btn">⚙️</button>
+<button class="btn" onclick="abrir('buscar')">🔍</button>
+<button class="btn" onclick="abrir('ajustes')">⚙️</button>
+</div>
+
+</div>
+
+<!-- SECCIONES -->
+
+<div id="reuniones" class="section">
+<h2>Reuniones</h2>
+<p>Aquí irá la gestión de reuniones.</p>
+<button class="back" onclick="volver()">Volver</button>
+</div>
+
+<div id="asambleas" class="section">
+<h2>Asambleas</h2>
+<p>Aquí irá el control y temporizador.</p>
+<button class="back" onclick="volver()">Volver</button>
+</div>
+
+<div id="informes" class="section">
+<h2>Informes</h2>
+<p>Aquí se mostrarán los reportes.</p>
+<button class="back" onclick="volver()">Volver</button>
+</div>
+
+<div id="buscar" class="section">
+<h2>Buscar</h2>
+<p>Búsqueda por congregación u orador.</p>
+<button class="back" onclick="volver()">Volver</button>
+</div>
+
+<div id="ajustes" class="section">
+<h2>Ajustes</h2>
+<p>Aquí podrás cambiar nombre y respaldos.</p>
+<button class="back" onclick="volver()">Volver</button>
 </div>
 
 <script>
-  function mostrarFecha() {
-    const hoy = new Date();
-    const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById("fecha").innerText =
-      hoy.toLocaleDateString("es-ES", opciones);
-  }
 
-  document.addEventListener("DOMContentLoaded", function() {
-    mostrarFecha();
+function mostrarFecha(){
+  const hoy = new Date();
+  const opciones = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+  document.getElementById("fecha").innerText =
+    hoy.toLocaleDateString("es-ES", opciones);
+}
+
+function abrir(seccion){
+  document.getElementById("inicio").style.display="none";
+  document.querySelectorAll(".section").forEach(sec=>{
+    sec.style.display="none";
   });
+  document.getElementById(seccion).style.display="block";
+}
+
+function volver(){
+  document.querySelectorAll(".section").forEach(sec=>{
+    sec.style.display="none";
+  });
+  document.getElementById("inicio").style.display="block";
+}
+
+document.addEventListener("DOMContentLoaded", mostrarFecha);
+
 </script>
 
 </body>

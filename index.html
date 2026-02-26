@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super Asistente 360</title>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f172a">
+
+  <link rel="stylesheet" href="styles/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="splash">
+  <h1>Super Asistente 360</h1>
+</div>
+
+<div id="app" class="hidden">
+  <header class="welcome">
+    <h2 id="greeting">Hola</h2>
+    <p id="currentDate"></p>
+  </header>
+
+  <main>
+    <div class="card" id="asambleaCard">
+      <div class="card-header">
+        <span>Asamblea</span>
+        <span class="material-symbols-outlined">expand_more</span>
+      </div>
+      <div class="card-content">
+        Tiempo acumulado: <span id="homeAsambleaTotal">0</span> min
+      </div>
+    </div>
+  </main>
+
+  <div class="bottom-actions">
+    <button id="settingsBtn">
+      <span class="material-symbols-outlined">settings</span>
+    </button>
+  </div>
+</div>
+
+<script src="core/app.js"></script>
+
+</body>
+</html>

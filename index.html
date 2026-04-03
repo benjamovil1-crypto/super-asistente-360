@@ -1663,6 +1663,11 @@ function generarPDF() {
     }
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF({ orientation:'portrait', unit:'mm', format:'a4' });
+    // --- ESTO HACE EL FONDO BLANCO Y LETRAS NEGRAS ---
+    doc.setFillColor(255, 255, 255); 
+    doc.rect(0, 0, 210, 297, 'F');   
+    doc.setTextColor(0, 0, 0);       
+    // ------------------------------------------------
     const W=210, margin=14;
     let y=margin;
 

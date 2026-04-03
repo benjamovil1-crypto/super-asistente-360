@@ -1821,9 +1821,9 @@ function generarPDF() {
     card(y, 38, C.cyan);
     y+=4;
     y=infoRow('Semanas registradas', semanas.length, y, C.cyan);
-    y=infoRow('KM totales recorridos', tKm+' km', y, C.orange);
+    y=infoRow('Total Despensa', '$'+tKm, y, C.orange);
     y=infoRow('Gastos totales', '$'+tGs, y, C.green);
-    y=infoRow('Promedio KM por semana', pKm+' km', y, C.purple);
+    y=infoRow('Promedio Despensa', '$'+pKm, y, C.purple);
     y=infoRow('Semanas de visita', nVis, y, C.cyan);
     y=infoRow('Semanas de asamblea', nAsm, y, C.mid);
     y+=6;
@@ -1859,9 +1859,12 @@ function generarPDF() {
         doc.text(s.cong, margin+5, y);
         y+=6;
 
-        y=infoRow('Coordinador', s.coord, y);
-        y=infoRow('KM', s.km+' km', y, C.orange);
-        y=infoRow('Gastos', '$'+s.gastos, y, C.green);
+       y=infoRow('Coordinador', s.coord, y);
+        // Esta línea es la mejor opción porque usa el color cyan que ya tienes definido
+        if(s.numVisita) y=infoRow('Visita No.', s.numVisita, y, C.cyan); 
+        
+        y=infoRow('Despensa', '$'+s.km, y, C.orange);
+        y=infoRow('Gasolina ⛽️', '$'+s.gastos, y, C.green);
 
         if(esVisita){
             y=divider(y);

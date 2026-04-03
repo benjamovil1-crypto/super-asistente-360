@@ -657,10 +657,19 @@
                     <div class="card-label" style="color:var(--cyan);"><i data-lucide="map-pin" style="width:11px;height:11px;"></i>Datos de la Visita</div>
                     <input type="text" id="cong" placeholder="🏛️ Congregación">
                     <input type="text" id="coord" placeholder="👤 Coordinador">
+                    
+                    <select id="num-visita" style="width: 100%; background: #1a1a1c; border: 1px solid #333; color: white; padding: 10px; border-radius: 8px; margin-bottom: 10px; font-family: inherit;">
+                        <option value="" disabled selected>🔢 Número de Visita</option>
+                        <option value="1">1ra Visita</option>
+                        <option value="2">2da Visita</option>
+                        <option value="Vacaciones">Vacaciones</option>
+                    </select>
+
                     <div class="grid-2" style="margin-bottom:0;">
-                        <input type="number" id="km" placeholder="🚗 KM" style="margin-bottom:0;">
-                        <input type="number" id="gastos" placeholder="💵 Gasto $" style="margin-bottom:0;">
+                        <input type="number" id="km" placeholder="🛒 Despensa $" style="margin-bottom:0;">
+                        <input type="number" id="gastos" placeholder="⛽️ Gasolina $" style="margin-bottom:0;">
                     </div>
+                </div>
                 </div>
                 <div id="seccion-ancianos" style="display:contents;">
                     <div class="card card-accent-purple">

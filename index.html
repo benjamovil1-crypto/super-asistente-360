@@ -453,6 +453,30 @@
             letter-spacing: 3px;
             color: rgba(0,229,176,0.35);
         }
+   /* --- CORRECCIONES DE DISEÑO --- */
+
+/* 1. Subir las opciones de Ajustes para que no se vean tan abajo */
+#view-settings .content {
+    padding-top: 5px !important;
+    margin-top: 0 !important;
+}
+
+#view-settings .card {
+    margin-bottom: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 60px !important;
+}
+
+/* 2. Que el logo del Splash no se corte y se vea profesional */
+#splash img {
+    width: 140px !important; 
+    height: 140px !important;
+    object-fit: contain !important; /* Esto evita el recorte */
+    clip-path: none !important;    /* Quita el círculo que lo mutilaba */
+    border-radius: 0 !important;
+    filter: drop-shadow(0 0 15px rgba(0,255,255,0.3));
+}
     </style>
 </head>
 <body>

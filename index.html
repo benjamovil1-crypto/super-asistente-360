@@ -1336,7 +1336,8 @@ function save() {
         obsAncianos:  document.getElementById('obs-ancianos').value  ||'',
         agendaVisita: document.getElementById('agenda-visita').value ||'',
         checks:[document.getElementById('chk1').checked,document.getElementById('chk2').checked,document.getElementById('chk3').checked],
-        oradores:[...tempOra]
+        oradores:[...tempOra],
+        numVisita: document.getElementById('num-visita').value,
     };
     if(id){ const idx=db.semanas.findIndex(s=>s.id===data.id); if(idx>-1) db.semanas[idx]=data; }
     else db.semanas.push(data);

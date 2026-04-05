@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Super Asistente 360 · Benjamín</title>
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="SA 360">
     <meta name="theme-color" content="#060608">
     <meta name="application-name" content="Super Asistente 360">
     <link rel="manifest" href="manifest.json">
@@ -38,9 +34,9 @@
         .status-pill.crisis { background: var(--red-dim); border-color: var(--red); color: var(--red); }
 
         /* CONTENT */
-        .content { flex: 1; overflow: hidden; }
+        .content { flex: 1; overflow: hidden; position: relative; }
         .view { display: none; }
-        .view.active { display: block; height: 100%; overflow-y: auto; padding: 16px; padding-bottom: 100px; animation: fadeIn 0.25s ease; }
+        .view.active { display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow-y: auto; padding: 16px; padding-bottom: 100px; animation: fadeIn 0.25s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
         /* CARDS */
@@ -455,30 +451,7 @@
             letter-spacing: 3px;
             color: rgba(0,229,176,0.35);
         }
-   /* --- CORRECCIONES DE DISEÑO --- */
-
-/* 1. Subir las opciones de Ajustes para que no se vean tan abajo */
-#view-settings .content {
-    padding-top: 5px !important;
-    margin-top: 0 !important;
-}
-
-#view-settings .card {
-    margin-bottom: 12px !important;
-    display: flex !important;
-    align-items: center !important;
-    min-height: 60px !important;
-}
-
-/* 2. Que el logo del Splash no se corte y se vea profesional */
-#splash img {
-    width: 140px !important; 
-    height: 140px !important;
-    object-fit: contain !important; /* Esto evita el recorte */
-    clip-path: none !important;    /* Quita el círculo que lo mutilaba */
-    border-radius: 0 !important;
-    filter: drop-shadow(0 0 15px rgba(0,255,255,0.3));
-}
+        
     </style>
 </head>
 <body>
